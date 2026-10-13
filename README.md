@@ -24,17 +24,23 @@ Computer Science at CUHK, with minors in Data Analytics and Informatics, and Bus
 - **Kaggle Pokémon TCG AI Battle**: team entry, 2,043rd of 6,807 teams on the Simulation leaderboard (read 2026-09-13).
 - **MonsoonSIM Enterprise Resource Management Competition 2025**: 3rd place (second runner-up).
 
+## Start with the engineering
+
+- **Data reliability:** [QTS architecture and trade-offs](https://oscar-chw.github.io/projects/qts-research-platform/) and the [runnable synthetic data-platform demo](https://github.com/oscar-chw/qts-platform-demo).
+- **Numerical computing:** [FatQat's CPU/GPU design](https://oscar-chw.github.io/projects/fatqat-gpu-backend/) and an [interactive arithmetic demonstration](https://oscar-chw.github.io/demos/#compensated).
+- **Research discipline:** [the research-system case study](https://oscar-chw.github.io/projects/ai-quant-research-system/) and the [blueprint's controlled-experiment demo](https://oscar-chw.github.io/demos/crypto-desk/).
+
 ## Projects
 
 ### 1. AI quant research system
 
 One system: a vault of cited notes and results, a harness whose gates decide when work is done, and AI coding agents that read, build and review. Front page: [agentic-quant-research](https://github.com/oscar-chw/agentic-quant-research).
 
-| Component | Role in the system | One number |
+| Component | Role in the system | Evidence and limits |
 |---|---|---|
-| [agentic-quant-research](https://github.com/oscar-chw/agentic-quant-research) | Centrepiece build: a Claude Code orchestrator and its subagents turned a quant-finance textbook into 1,805 paraphrased, cited claims and a tested Python library (whole project: about 140 subagents, 266 gated tasks) | 1,417 of 1,615 implemented claims verified by passing tests (773 tests, 0 failing) |
+| [agentic-quant-research](https://github.com/oscar-chw/agentic-quant-research) | Cited AFML notes and a Python research library, with verified claims linked to executable tests; implemented with AI coding agents under my design and review | 1,417 of 1,615 implemented claims have their named tests passing; private-input gaps are disclosed in the repository |
 | [crypto-desk-blueprint](https://github.com/oscar-chw/crypto-desk-blueprint) | Template for building a crypto trading desk from scratch, for humans or AI agents: typed interfaces for 9 stages (data → features → strategy → pricing → risk → portfolio → execution), tested building blocks, and conformance tests any implementation must pass; worked example: [crypto-trading-pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) | 32 conformance tests; 20 deliberately broken versions, all caught |
-| [crypto-trading-pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) | After the WQT 2025 hackathon, I rebuilt my competition bot into an exchange-agnostic pipeline on crypto-desk-blueprint: market data, signals, risk limits and confirmed-fill orders (paper trading by default, live via ccxt), with a backtester running the same decision code | 56 tests plus 58 blueprint conformance tests; live and backtest agree on all 130 bars checked |
+| [crypto-trading-pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) | After the WQT 2025 hackathon, I rebuilt my competition bot into an exchange-agnostic pipeline on crypto-desk-blueprint: market data, signals, risk limits and confirmed-fill orders (paper trading by default, live via ccxt), with a backtester running the same decision code | 56 tests plus 58 blueprint conformance tests; live-loop and backtest entry decisions agree on an offline 130-bar fixture; no real-order result claimed |
 | [platform/](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform) | Point-in-time research harness: an LLM proposes hypotheses but never scores them; pre-registered gate, human promotion. Includes the [Factor Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/factor), the [Market-Making Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim) and a C++20 order-book replay port | 120 hypotheses screened on real Binance data; the gate blocked both control picks. C++20 replay ~2.3× faster through Python including conversion (preloaded synthetic 100k-message/64-query benchmark) |
 | [agent-harness](https://github.com/oscar-chw/agent-harness) | The harness, packaged: shared agent rules, memory tools and command guards | See the repository for release-specific checks and limits |
 | [quant-research-vault](https://github.com/oscar-chw/quant-research-vault) | Paper layer of the vault: arXiv/OpenAlex ingestion into SQLite and ChromaDB, served through a read-only MCP search server | 18,492 paper records at a 2026-07-30 audit (database unpublished) |
@@ -42,7 +48,11 @@ One system: a vault of cited notes and results, a harness whose gates decide whe
 
 ### 2. FatQat CUDA backend
 
-[fatqat-cuda](https://github.com/oscar-chw/fatqat-cuda): a fork of the open-source FatQat quantum simulator, kept in sync with upstream, adding a CUDA backend (all four simulation methods, several GPUs), an Apple-GPU runtime (bit-identical to the CPU engine, 1.18–1.52× faster at 24–26 qubits), automatic hardware selection, exact circuit simplification (on by default only where it changes nothing) and exact shot branching; inspired by the course CENG5280. **On warm calls in complex128, 17–21× faster than the project's own optimised 32-thread CPU engine on 24–28-qubit observables with error-compensated GPU products, the default (23–26× in the opt-in plain mode; 35–42× with the r9 engines); shot branching 19–89× on noiseless circuits with mid-circuit measurements; within 2.9 machine epsilons of a 60-digit reference on 110 small circuits (up to 5 qubit/qutrit subsystems); 0 failures in 48,700 randomized checks.** Contributor to upstream FatQat: merged fix ([spaceqat/fatqat#52](https://github.com/spaceqat/fatqat/pull/52)).
+[fatqat-cuda](https://github.com/oscar-chw/fatqat-cuda) extends the open-source FatQat simulator with CUDA engines, an Apple-GPU/CPU tile runtime, automatic hardware selection and exact circuit simplification. Inspired by CENG5280; the CPU-facing simulation interface stays the same.
+
+- **Speed:** 17–21× versus the project's optimised 32-thread CPU engine on warm complex128 calls for 24–28-qubit observables, using the default error-compensated products. [Measured workloads and trade-offs](https://github.com/oscar-chw/fatqat-cuda#results).
+- **Accuracy:** within 2.9 float64 machine epsilons of a 60-digit reference on 110 small circuits, up to five qubit/qutrit subsystems. This is a separate experiment from the large-state speed measurement.
+- **Upstream contribution:** merged fix sizing process shot workers by the CPU affinity mask ([spaceqat/fatqat#52](https://github.com/spaceqat/fatqat/pull/52)).
 
 ### 3. CUHK QTS research data platform
 
@@ -50,16 +60,16 @@ One system: a vault of cited notes and results, a harness whose gates decide whe
 
 ### 4. Competitions
 
-| Project | What it is | One number |
+| Project | What it is | Evidence and limits |
 |---|---|---|
 | [imc-prosperity-4-shdc](https://github.com/oscar-chw/imc-prosperity-4-shdc) | What we did in each round, what other teams did differently, and what I learned, against 9 public Prosperity 4 write-ups | Top 5% (904 / 18,803 teams) |
 | [ptcg-ai-battle](https://github.com/oscar-chw/ptcg-ai-battle) | A card game under imperfect information: imitation learning (set transformer), self-play PPO (not submitted), search baselines | 2,043 / 6,807 (team entry) |
 
 ### 5. Supporting work
 
-| Project | What it is | One number |
+| Project | What it is | Evidence and limits |
 |---|---|---|
-| [dna-storage-simulation](https://github.com/Oscar-Codespace/dna-storage-simulation) | Individual course project: a seeded simulator for storing data in DNA, with insertion, deletion and substitution channels, Reed–Solomon and fountain-code recovery, and a simplified HEDGES-style beam-search decoder | No headline result: a teaching simulator on synthetic channels |
+| [dna-storage-simulation](https://github.com/Oscar-Codespace/dna-storage-simulation) | Individual course project: a seeded simulator for storing data in DNA, with insertion, deletion and substitution channels, Reed–Solomon coding-bound illustrations, fountain-code recovery, and a simplified HEDGES-style beam-search decoder | No headline result: a teaching simulator on synthetic channels |
 | [alpha-gp-lab](https://github.com/oscar-chw/alpha-gp-lab) | Genetic programming over formulaic alpha expressions with pre-registered train/validation/test roles, delay-1 signals, costs and an equal-budget random search as a control | 34 coins, 6.7 years; test rank IC 0.08, matched by random search |
 
 ## How I work
