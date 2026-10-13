@@ -20,7 +20,7 @@ Computer Science at CUHK, with minors in Data Analytics and Informatics, and Bus
 ## Results
 
 - **Open-source contributor to FatQat**: merged fix sizing process shot workers by the CPU affinity mask ([spaceqat/fatqat#52](https://github.com/spaceqat/fatqat/pull/52)).
-- **IMC Prosperity 4** (team SHDC): 904th of 18,803 teams, 18th in Hong Kong.
+- **IMC Prosperity 4** (team SHDC): 904th globally, 18th in Hong Kong.
 - **Kaggle Pokémon TCG AI Battle**: team entry, 2,043rd of 6,807 teams on the Simulation leaderboard (read 2026-09-13).
 - **MonsoonSIM Enterprise Resource Management Competition 2025**: 3rd place (second runner-up).
 
@@ -55,7 +55,7 @@ The public repository is still named [crypto-desk-blueprint](https://github.com/
 ### Secondary projects
 
 - **Personal WorldQuant BRAIN workflow (private):** Built and ran a Python workflow for batch WorldQuant BRAIN simulations, with concurrency-limit handling and checkpoint/resume.
-- **IMC learning and separate lab:** [My team's Prosperity 4 write-up](https://github.com/oscar-chw/imc-prosperity-4-shdc) compares our rounds with nine public write-ups; we placed 904th of 18,803 teams (top 5%) and 18th in Hong Kong. The [Market-Making Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim) is a separate research component, not the competition system.
+- **IMC learning and separate lab:** [My team's Prosperity 4 write-up](https://github.com/oscar-chw/imc-prosperity-4-shdc) compares our rounds with nine public write-ups; we placed 904th globally and 18th in Hong Kong. The [Market-Making Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim) is a separate research component, not the competition system.
 - **Crypto learning and offline/paper bot:** The [blueprint](https://github.com/oscar-chw/crypto-desk-blueprint) and [pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) document the engineering lessons and offline paper workflow; no real-order result or WQT prize is claimed.
 
 ### Supporting references
