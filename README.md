@@ -60,7 +60,7 @@ The public repository is still named [crypto-desk-blueprint](https://github.com/
 
 ### Supporting references
 
-- [alpha-gp-lab](https://github.com/oscar-chw/alpha-gp-lab): controlled genetic-programming study on 34 coins and 6.7 years; test rank IC 0.08 was matched by equal-budget random search.
+- [alpha-gp-lab](https://github.com/oscar-chw/alpha-gp-lab): formulaic factor search with AST parsing, delayed signals, cost-aware evaluation, SQLite expression lineage and hash-pinned replay; the archived study includes a random-search control.
 - [Polymarket Crypto 5-minute study](https://github.com/oscar-chw/Polymarket-Crypto-5min): earlier point-in-time walk-forward experiment; its timing figures predate fixes and were not rerun.
 - [Pokémon TCG AI Battle](https://github.com/oscar-chw/ptcg-ai-battle): team entry, 2,043rd of 6,807 on the Simulation leaderboard.
 - [DNA storage simulation](https://github.com/Oscar-Codespace/dna-storage-simulation): individual course teaching simulator on seeded synthetic channels.
