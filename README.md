@@ -6,7 +6,7 @@
 
 <img align="right" width="230" src="assets/fourier_portrait.gif" alt="A line portrait of Oscar being drawn by 500 rotating circles (a Fourier series)">
 
-Computer Science at CUHK, with minors in Data Analytics and Informatics, and Business (graduating July 2027). I build quant research infrastructure and test trading ideas against point-in-time data, with explicit controls and costs. I am the sole developer and architect of the CUHK Quant Trading Society research team's data platform; my WorldQuant BRAIN consultant status is documented in a historical account snapshot.
+Computer Science at CUHK, with minors in Data Analytics and Informatics, and Business (graduating July 2027). I build quant research infrastructure and test trading ideas against point-in-time data, with explicit controls and costs. I am the **Lead Developer & Quantitative Researcher** for the CUHK Quant Trading Society research team and the sole developer and architect of its data platform; my WorldQuant BRAIN consultant status is documented in a historical account snapshot.
 
 
 <details>

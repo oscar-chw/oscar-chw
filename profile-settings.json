@@ -11,7 +11,7 @@
   ],
   "repositories": {
     "oscar-chw/qts-platform-showcase": {
-      "description": "Architecture and dated evidence for the tick-data platform I built for a university quant society. Documents versioned Parquet and research access through Arrow, DuckDB and Polars; qts-platform-demo provides an independent synthetic example.",
+      "description": "Architecture and dated evidence for the tick-data platform I built as Lead Developer & Quantitative Researcher for the CUHK Quant Trading Society. Documents versioned Parquet and research access through Arrow, DuckDB and Polars; qts-platform-demo provides an independent synthetic example.",
       "topics": [
         "quant",
         "market-data",
