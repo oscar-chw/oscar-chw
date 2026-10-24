@@ -1,0 +1,160 @@
+{
+  "status": "proposed; not applied by CI or merge",
+  "website": "https://oscar-chw.github.io",
+  "pins": [
+    "oscar-chw/qts-platform-showcase",
+    "oscar-chw/fatqat-cuda",
+    "oscar-chw/agentic-quant-research",
+    "oscar-chw/crypto-desk-blueprint",
+    "oscar-chw/crypto-trading-pipeline",
+    "oscar-chw/imc-prosperity-4-shdc"
+  ],
+  "repositories": {
+    "oscar-chw/qts-platform-showcase": {
+      "description": "Architecture and dated evidence for the tick-data platform I built as Lead Developer & Quantitative Researcher for the CUHK Quant Trading Society. Documents versioned Parquet and research access through Arrow, DuckDB and Polars; qts-platform-demo provides an independent synthetic example.",
+      "topics": [
+        "quant",
+        "market-data",
+        "tick-data",
+        "data-platform",
+        "data-engineering",
+        "data-quality",
+        "duckdb",
+        "parquet",
+        "apache-arrow",
+        "polars",
+        "a-shares",
+        "crypto",
+        "reliability",
+        "case-study"
+      ]
+    },
+    "oscar-chw/fatqat-cuda": {
+      "description": "GPU and numerical-computing extension of the open-source FatQat quantum simulator, with CUDA engines, an Apple-GPU runtime and CPU reference comparisons. Inspired by CENG5280; includes a merged upstream CPU-affinity fix.",
+      "topics": [
+        "cuda",
+        "cupy",
+        "gpu",
+        "high-performance-computing",
+        "python",
+        "quantum-computing",
+        "quantum-simulator",
+        "statevector",
+        "multi-gpu"
+      ]
+    },
+    "oscar-chw/agentic-quant-research": {
+      "description": "Quantitative research components: a cited AFML Python library, point-in-time market replay and controlled hypothesis evaluation. LLM proposals are separated from scoring and promotion; the broader research product remains unfinished.",
+      "topics": [
+        "quant-research",
+        "ai-agents",
+        "claude-code",
+        "multi-agent-systems",
+        "financial-machine-learning",
+        "machine-learning",
+        "backtesting",
+        "cross-validation",
+        "deflated-sharpe",
+        "hierarchical-risk-parity",
+        "research-reproducibility",
+        "python"
+      ]
+    },
+    "oscar-chw/crypto-desk-blueprint": {
+      "description": "A crypto-first research and trading template with nine typed stages, reusable building blocks and conformance tests. Controlled experiments document where its rules hold and fail. Broader market coverage remains unfinished.",
+      "topics": [
+        "crypto",
+        "trading",
+        "algorithmic-trading",
+        "quantitative-finance",
+        "backtesting",
+        "ai-coding-agents",
+        "template",
+        "blueprint",
+        "conformance-testing",
+        "mutation-testing",
+        "typing-protocol",
+        "python"
+      ]
+    },
+    "oscar-chw/crypto-trading-pipeline": {
+      "description": "Post-competition crypto pipeline: market data, signals, risk limits and a paper-default broker, with a ccxt adapter. Offline backtests share decision code with the execution loop; synthetic checks do not establish trading performance.",
+      "topics": [
+        "crypto",
+        "trading-bot",
+        "algorithmic-trading",
+        "backtesting",
+        "risk-management",
+        "order-execution",
+        "ccxt",
+        "python",
+        "pytest",
+        "hypothesis"
+      ]
+    },
+    "oscar-chw/imc-prosperity-4-shdc": {
+      "description": "IMC Prosperity 4 strategy write-up: Team SHDC placed 904th globally and 18th in Hong Kong. Oscar coded the final two algorithmic rounds. Compares our recorded strategies with nine public team write-ups.",
+      "topics": [
+        "imc-prosperity",
+        "algorithmic-trading",
+        "market-making",
+        "quantitative-finance",
+        "trading-competition",
+        "kalman-filter",
+        "options",
+        "lessons-learned",
+        "post-mortem"
+      ]
+    },
+    "oscar-chw/qts-platform-demo": {
+      "description": "minilake: an independent synthetic-data implementation of the public QTS platform design. Demonstrates immutable raw capture, explicit cleansing rules, dataset versions, repeatable pinned reads and timestamp cutoffs.",
+      "topics": [
+        "quant",
+        "market-data",
+        "tick-data",
+        "data-engineering",
+        "data-quality",
+        "data-versioning",
+        "optimistic-concurrency",
+        "look-ahead-bias",
+        "synthetic-data",
+        "python",
+        "standard-library",
+        "demo"
+      ]
+    },
+    "oscar-chw/ptcg-ai-battle": {
+      "description": "Kaggle Pokémon TCG AI Battle team entry: imitation learning, search baselines and a separate self-play PPO experiment. Documents package checks, controls, limitations and the recorded team result.",
+      "topics": [
+        "kaggle",
+        "game-ai",
+        "imitation-learning",
+        "reinforcement-learning",
+        "ppo",
+        "self-play",
+        "set-transformer",
+        "ismcts",
+        "numpy",
+        "pytorch",
+        "evaluation",
+        "reproducibility",
+        "trading-card-game"
+      ]
+    },
+    "oscar-chw/agent-harness": {
+      "description": "Shared coding-agent rules, memory retrieval and gated work plans, with tool-specific adapters and explicit support boundaries. Public source and recorded checks; guard behavior depends on the tool and release.",
+      "topics": [
+        "ai-coding-agents",
+        "claude-code",
+        "codex",
+        "mcp",
+        "model-context-protocol",
+        "developer-tools",
+        "agent-memory",
+        "llm-evaluation",
+        "shell-safety",
+        "python"
+      ]
+    }
+  }
+}
