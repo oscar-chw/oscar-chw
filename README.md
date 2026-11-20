@@ -1,12 +1,12 @@
-<a href="https://oscar-chw.github.io"><img src="assets/header.svg" width="100%" alt="Victoria Harbour drawn from data: each building is a 30-day block of BTC/USDT prices, green windows are up days and red windows down days, the glowing roofline is the price chart, the beams are the data platform's concurrent readers and writers, and the water holds a BTC/USDT order book refreshed daily"></a>
+<a href="https://oscar-chw.github.io"><img src="assets/header.svg" width="100%" alt="Victoria Harbour drawn from data: each building is a calendar month of BTC/USDT prices, green windows are up days and red windows down days, the glowing roofline is the price chart, the beams replay a synthetic concurrency fixture, and the water holds a BTC/USDT order book refreshed daily"></a>
 
-<p align="center"><sub><a href="https://oscar-chw.github.io"><b>Hover the interactive version</b></a> &nbsp;·&nbsp; <code>roofline</code> BTC/USDT monthly close &nbsp;·&nbsp; <code>windows</code> green up days, red down days &nbsp;·&nbsp; <code>beams</code> the <a href="https://github.com/oscar-chw/qts-platform-showcase">QTS data platform</a>: 12 readers, 5 writers, 0 lost &nbsp;·&nbsp; <code>t = now</code> nothing to its right is used (<a href="https://github.com/oscar-chw/agentic-quant-research/tree/main/platform">the research platform</a>) &nbsp;·&nbsp; <code>water</code> a BTC/USDT order book refreshed daily, green bids and red asks (<a href="https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim">Market-Making Lab</a>)</sub></p>
+<p align="center"><sub><a href="https://oscar-chw.github.io"><b>Hover the interactive version</b></a> &nbsp;·&nbsp; <code>roofline</code> BTC/USDT monthly close &nbsp;·&nbsp; <code>windows</code> green up days, red down days &nbsp;·&nbsp; <code>beams</code> a <a href="https://github.com/oscar-chw/qts-platform-showcase">synthetic concurrency fixture</a>: 12 readers, 5 writers &nbsp;·&nbsp; <code>t = now</code> nothing to its right is used (<a href="https://github.com/oscar-chw/agentic-quant-research/tree/main/platform">the research platform</a>) &nbsp;·&nbsp; <code>water</code> a BTC/USDT order book refreshed daily, green bids and red asks (<a href="https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim">Market-Making Lab</a>)</sub></p>
 
 # Oscar Choi
 
 <img align="right" width="230" src="assets/fourier_portrait.gif" alt="A line portrait of Oscar being drawn by 500 rotating circles (a Fourier series)">
 
-Computer Science at CUHK, with minors in Data Analytics and Informatics, and Business (graduating July 2027). I build quant research infrastructure and test trading ideas against point-in-time data, with explicit controls and costs. I am the sole developer and architect of the CUHK Quant Trading Society research team's data platform and a WorldQuant BRAIN research consultant.
+Computer Science at CUHK, with minors in Data Analytics and Informatics, and Business (graduating July 2027). I build quant research infrastructure and test trading ideas against point-in-time data, with explicit controls and costs. I am the **Lead Developer & Quantitative Researcher** for the CUHK Quant Trading Society research team and the sole developer and architect of its data platform; my WorldQuant BRAIN consultant status is documented in a historical account snapshot.
 
 
 <details>
@@ -20,50 +20,53 @@ Computer Science at CUHK, with minors in Data Analytics and Informatics, and Bus
 ## Results
 
 - **Open-source contributor to FatQat**: merged fix sizing process shot workers by the CPU affinity mask ([spaceqat/fatqat#52](https://github.com/spaceqat/fatqat/pull/52)).
-- **IMC Prosperity 4** (team SHDC): 904th of 18,803 teams, 18th in Hong Kong.
+- **IMC Prosperity 4** (team SHDC): 904th globally, 18th in Hong Kong.
 - **Kaggle Pokémon TCG AI Battle**: team entry, 2,043rd of 6,807 teams on the Simulation leaderboard (read 2026-09-13).
 - **MonsoonSIM Enterprise Resource Management Competition 2025**: 3rd place (second runner-up).
 
+## Start with the engineering
+
+- **Market data and replay:** [QTS architecture and trade-offs](https://oscar-chw.github.io/projects/qts-research-platform/), the [independent synthetic minilake](https://github.com/oscar-chw/qts-platform-demo), and [AQR's measured replay component](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/marketdata/native).
+- **GPU numerical computing:** [FatQat's CPU/GPU design](https://oscar-chw.github.io/projects/fatqat-gpu-backend/) and an [interactive arithmetic demonstration](https://oscar-chw.github.io/demos/#compensated).
+- **Research systems:** [the AI research-system case study](https://oscar-chw.github.io/projects/ai-quant-research-system/) and the [blueprint's controlled-experiment demo](https://oscar-chw.github.io/demos/crypto-desk/).
+
 ## Projects
 
-### 1. AI quant research system
+### Main directions
 
-One system: a vault of cited notes and results, a harness whose gates decide when work is done, and AI coding agents that read, build and review. Front page: [agentic-quant-research](https://github.com/oscar-chw/agentic-quant-research).
+#### 1. QTS market data and backtest library
 
-| Component | Role in the system | One number |
-|---|---|---|
-| [agentic-quant-research](https://github.com/oscar-chw/agentic-quant-research) | Centrepiece build: a Claude Code orchestrator and its subagents turned a quant-finance textbook into 1,805 paraphrased, cited claims and a tested Python library (whole project: about 140 subagents, 266 gated tasks) | 1,417 of 1,615 implemented claims verified by passing tests (773 tests, 0 failing) |
-| [crypto-desk-blueprint](https://github.com/oscar-chw/crypto-desk-blueprint) | Template for building a crypto trading desk from scratch, for humans or AI agents: typed interfaces for 9 stages (data → features → strategy → pricing → risk → portfolio → execution), tested building blocks, and conformance tests any implementation must pass; worked example: [crypto-trading-pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) | 32 conformance tests; 20 deliberately broken versions, all caught |
-| [crypto-trading-pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) | After the WQT 2025 hackathon, I rebuilt my competition bot into an exchange-agnostic pipeline on crypto-desk-blueprint: market data, signals, risk limits and confirmed-fill orders (paper trading by default, live via ccxt), with a backtester running the same decision code | 56 tests plus 58 blueprint conformance tests; live and backtest agree on all 130 bars checked |
-| [platform/](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform) | Point-in-time research harness: an LLM proposes hypotheses but never scores them; pre-registered gate, human promotion. Includes the [Factor Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/factor), the [Market-Making Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim) and a C++20 order-book replay port | 120 hypotheses screened on real Binance data; the gate blocked both control picks. C++20 replay ~2.3× faster end-to-end from Python (synthetic benchmark) |
-| [agent-harness](https://github.com/oscar-chw/agent-harness) | The harness, packaged: shared rules and memory tools for seven AI coding tools, and a command guard for Claude Code | Guard blocks 39 of 45 held-out dangerous commands, 20/20 safe pass |
-| [quant-research-vault](https://github.com/oscar-chw/quant-research-vault) | Paper layer of the vault: arXiv/OpenAlex ingestion into SQLite and ChromaDB, served through a read-only MCP search server | 18,492 paper records at a 2026-07-30 audit (database unpublished) |
-| [Polymarket-Crypto-5min](https://github.com/oscar-chw/Polymarket-Crypto-5min) | Earlier, separate experiment (July 2026, not built from the book): point-in-time walk-forward backtester; an availability audit caught a look-ahead leak in candle timing | 512 entry × 192 exit rules over 26 chronological folds |
+I built and operate the CUHK Quant Trading Society research team's tick-data pipeline; its source and data remain private. The separate [public showcase](https://github.com/oscar-chw/qts-platform-showcase) documents the design and dated results, while [minilake](https://github.com/oscar-chw/qts-platform-demo) is an independent implementation on synthetic data, written from that showcase. The 2026-10-05 snapshot held **704,009,291,430 stored rows** (not a unique-row count); a separate 420,000-row concurrency fixture preserved 23/23 commits and 1,111 version-pinned reads ([dated results](https://github.com/oscar-chw/qts-platform-showcase/blob/b819463/docs/results.md)).
 
-### 2. FatQat CUDA backend
+The associated reusable backtest library is also private. Public research components live separately in [AQR's public platform](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform): its market-data replay includes a C++20 port. On a preloaded synthetic 100,000-message, 64-query fixture, the C++20 port was **2.30× faster through the Python API including conversion** and **25.10× faster through a C++ caller**, both relative to the pure-Python batch implementation (`replay.book.reconstruct_many`). Loading and answer checking were excluded ([recorded benchmark](https://github.com/oscar-chw/agentic-quant-research/blob/f8c4825/platform/packages/marketdata/native/bench/results-2026-10-04.json)). These are replay-workload measurements, not QTS pipeline speed.
 
-[fatqat-cuda](https://github.com/oscar-chw/fatqat-cuda): a fork of the open-source FatQat quantum simulator, kept in sync with upstream, adding a CUDA backend (all four simulation methods, several GPUs), an Apple-GPU runtime (bit-identical to the CPU engine, 1.18–1.52× faster at 24–26 qubits), automatic hardware selection, exact circuit simplification (on by default only where it changes nothing) and exact shot branching; inspired by the course CENG5280. **17–21× faster than the project's own optimised 32-thread CPU engine on 24–28-qubit observables with error-compensated GPU products, the default (23–26× in the opt-in plain mode; 35–42× with the r9 engines); shot branching 19–89× on noiseless circuits with mid-circuit measurements; within 2.9 machine epsilons of a 60-digit reference; 0 failures in 48,700 randomized checks.** Contributor to upstream FatQat: merged fix ([spaceqat/fatqat#52](https://github.com/spaceqat/fatqat/pull/52)).
+#### 2. FatQat contribution and CUDA
 
-### 3. CUHK QTS research data platform
+[FatQat CUDA](https://github.com/oscar-chw/fatqat-cuda) extends the open-source simulator with GPU engines and numerical methods; it was inspired by CENG5280. Warm complex128 calls for 24–28-qubit observables measured **17–21×** the project's optimised 32-thread CPU engine. Separately, 110 small circuits were within 2.9 float64 machine epsilons of a 60-digit reference. I also contributed the merged [CPU-affinity fix for process shot-worker sizing](https://github.com/spaceqat/fatqat/pull/52); that contribution is not GPU acceptance evidence.
 
-[Write-up](https://github.com/oscar-chw/qts-platform-showcase) (code private) · [runnable demo](https://github.com/oscar-chw/qts-platform-demo). Tick-level market data a student quant team can trust: raw → typed Parquet → cleaned layers, versioned query library and API, data-quality checks; the demo is an independent stand-in on synthetic data. **700B+ stored market-data rows; 23 of 23 concurrent commits preserved in a race test.**
+#### 3. AI and LLM quantitative-research direction
 
-### 4. Competitions
+The broader product direction is to help researchers turn questions into controlled, reproducible quantitative research; that broad product is not built. Existing pieces are in [agentic-quant-research (AQR)](https://github.com/oscar-chw/agentic-quant-research): a cited AFML library with 1,417 of 1,615 implemented claims verified by their named tests, plus a point-in-time replay loop where an LLM proposes hypotheses but does not score or promote them. Its existing research components include the [Factor Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/factor) and a separate [Market-Making Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim). The paper metadata [search vault](https://github.com/oscar-chw/quant-research-vault) is a paper-search pipeline, not a comprehensive knowledge vault.
 
-| Project | What it is | One number |
-|---|---|---|
-| [imc-prosperity-4-shdc](https://github.com/oscar-chw/imc-prosperity-4-shdc) | What we did in each round, what other teams did differently, and what I learned, against 9 public Prosperity 4 write-ups | Top 5% (904 / 18,803 teams) |
-| [ptcg-ai-battle](https://github.com/oscar-chw/ptcg-ai-battle) | A card game under imperfect information: imitation learning (set transformer), self-play PPO (not submitted), search baselines | 2,043 / 6,807 (team entry) |
+#### 4. Asset-agnostic, non-LLM quant-system blueprint
 
-### 5. Supporting work
+The public repository is still named [crypto-desk-blueprint](https://github.com/oscar-chw/crypto-desk-blueprint), a typed, nine-stage blueprint with conformance checks and controlled experiments. Its reusable design aims to be asset-agnostic; the current executable examples are crypto-first and broader asset coverage is unfinished. The separate [crypto-trading-pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) is a paper-default example built on it. Its offline 130-bar synthetic fixture checks that live-loop and backtest entry decisions agree; it establishes no real-order result, fill or P&L parity, or trading performance. No WQT prize or placement is claimed.
 
-| Project | What it is | One number |
-|---|---|---|
-| [dna-storage-simulation](https://github.com/Oscar-Codespace/dna-storage-simulation) | Individual course project: a seeded simulator for storing data in DNA, with insertion, deletion and substitution channels, Reed–Solomon and fountain-code recovery, and a simplified HEDGES-style beam-search decoder | No headline result: a teaching simulator on synthetic channels |
-| [alpha-gp-lab](https://github.com/oscar-chw/alpha-gp-lab) | Genetic programming over formulaic alpha expressions with pre-registered train/validation/test roles, delay-1 signals, costs and an equal-budget random search as a control | 34 coins, 6.7 years; test rank IC 0.08, matched by random search |
+### Secondary projects
+
+- **Personal WorldQuant BRAIN workflow (private):** Built and ran a Python workflow for batch WorldQuant BRAIN simulations, with concurrency-limit handling and checkpoint/resume.
+- **IMC learning and separate lab:** [My team's Prosperity 4 write-up](https://github.com/oscar-chw/imc-prosperity-4-shdc) compares our rounds with nine public write-ups; we placed 904th globally and 18th in Hong Kong. The [Market-Making Lab](https://github.com/oscar-chw/agentic-quant-research/tree/main/platform/packages/imc-sim) is a separate research component, not the competition system.
+- **Crypto learning and offline/paper bot:** The [blueprint](https://github.com/oscar-chw/crypto-desk-blueprint) and [pipeline](https://github.com/oscar-chw/crypto-trading-pipeline) document the engineering lessons and offline paper workflow; no real-order result or WQT prize is claimed.
+
+### Supporting references
+
+- [alpha-gp-lab](https://github.com/oscar-chw/alpha-gp-lab): formulaic factor search with AST parsing, delayed signals, cost-aware evaluation, SQLite expression lineage and hash-pinned replay; the archived study includes a random-search control.
+- [Polymarket Crypto 5-minute study](https://github.com/oscar-chw/Polymarket-Crypto-5min): earlier point-in-time walk-forward experiment; its timing figures predate fixes and were not rerun.
+- [Pokémon TCG AI Battle](https://github.com/oscar-chw/ptcg-ai-battle): team entry, 2,043rd of 6,807 on the Simulation leaderboard.
+- [DNA storage simulation](https://github.com/Oscar-Codespace/dna-storage-simulation): individual course teaching simulator on seeded synthetic channels.
 
 ## How I work
 
-Code in these repositories was implemented with AI coding agents under my design and review; each flagship README says so. Every number in a README cites the file or command it came from, synthetic data is labelled as such, and negative results are kept in each README's results and limits.
+Code in these repositories was implemented with AI coding agents under my design and review; each flagship README says so. Reported measurements link to recorded evidence, synthetic data is labelled as such, and negative results are retained in the results and limits.
 
 Python, SQL, C++20, DuckDB / Arrow / Parquet, Linux.

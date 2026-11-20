@@ -1,0 +1,23 @@
+name: Profile checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Profile integrity, claim regressions and order-book tests
+        run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Check patch whitespace
+        run: git diff --check HEAD^ HEAD
